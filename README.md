@@ -1,0 +1,2 @@
+﻿# Clasificador Cuántico Variacional (VQC)
+
