@@ -1,6 +1,6 @@
 ﻿# Clasificador Cuántico Variacional (VQC)
 
-![tests](https://github.com/anomalyco/opencode/actions/workflows/tests.yml/badge.svg)
+![tests](https://github.com/derekrex333/Clasificador-Cuantico-Variacional-VQC/actions/workflows/tests.yml/badge.svg)
 
 Clasificador híbrido cuántico-clásico con 2 qubits, angle encoding y ansatz hardware-efficient. Simulador numpy por defecto (cero fricción); Q# opcional con validación cruzada.
 
@@ -52,7 +52,7 @@ history = train(X_train, y_train, X_val=X_test, y_val=y_test,
 print(accuracy_from_probs(predict_proba(X_test, history["params_final"], 3), y_test))
 ```
 
-Notebook comparativo: `notebooks/01_comparativo_vqc_vs_clasico.ipynb` (outputs limpiados vía `nbstripout` + `.gitattributes:1`).
+Notebook comparativo: `notebooks/01_comparativo_vqc_vs_clasico.ipynb` (outputs limpiados vía `nbstripout` + `.gitattributes`).
 
 ## Diseño por capas
 
@@ -69,10 +69,10 @@ Notebook comparativo: `notebooks/01_comparativo_vqc_vs_clasico.ipynb` (outputs l
 
 - `src/quantum/numpy_backend/` — matrices unitarias + producto tensorial, 4 amplitudes, simulación exacta.
 - `src/quantum/qsharp_backend/Circuit.qs` — mismo circuito en Q#.
-- `src/quantum_circuit.py:8` — fachada `circuit_expectation(..., backend="numpy"|"qsharp")`. Default `numpy`.
+- `src/quantum_circuit.py` — fachada `circuit_expectation(..., backend="numpy"|"qsharp")`. Default `numpy`.
 - `tests/test_circuit_parity.py` — compara ambos backends en puntos aleatorios (`|numpy-qsharp|<1e-6`). Se salta si `qsharp` no está instalado. **No es adorno: es prueba de correctitud.**
 
-En CI el job `parity-qsharp` corre con `continue-on-error: true` (`.github/workflows/tests.yml:22`).
+En CI el job `parity-qsharp` corre con `continue-on-error: true` (ver `.github/workflows/tests.yml`).
 
 ## Resultados
 
@@ -125,7 +125,7 @@ CI: `.github/workflows/tests.yml` en cada push; badge arriba.
 
 ## Jupyter — nbstripout
 
-`.gitattributes:1` (`*.ipynb filter=nbstripout`) asegura que los notebooks se versionen sin outputs pesados. Ejecuta una vez por clon:
+`.gitattributes` (`*.ipynb filter=nbstripout`) asegura que los notebooks se versionen sin outputs pesados. Ejecuta una vez por clon:
 
 ```bash
 nbstripout --install
