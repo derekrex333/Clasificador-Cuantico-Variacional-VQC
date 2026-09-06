@@ -3,30 +3,31 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.venv/
-venv/
-env/
-.env
 *.egg-info/
 dist/
 build/
 
-# Jupyter
+# Entornos
+venv/
+.venv/
+env/
+.env
+
+# Jupyter — checkpoints sí, notebooks no (se versionan via nbstripout + .gitattributes)
 .ipynb_checkpoints/
-*.ipynb
 
-# Quantum
-*.qasm
+# Q# / Azure Quantum
+.qsharp/
+qsharp_cache/
+*.qsharp_cache/
 
-# IDE
+# Sistema
+.DS_Store
+Thumbs.db
 .vscode/
 .idea/
 *.swp
 *.swo
-.DS_Store
-Thumbs.db
 
-# Data
-data/*.csv
-data/*.h5
+# Logs
 *.log
